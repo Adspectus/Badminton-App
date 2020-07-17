@@ -1,0 +1,167 @@
+// ==========================================================================
+// Global Typography
+// ==========================================================================
+
+//.container {
+//  @extend .container;
+//  @include mycontainer();
+//}
+
+//.container-fluid {
+//  @extend .container-fluid;
+//  @include mycontainer();
+//}
+
+//.page-header {
+//  @extend .page-header;
+//  margin-bottom: 0.5em;
+//}
+
+//.tab-content {
+//  @extend .tab-content;
+//  margin-top: 5em;
+//}
+
+/*.osmap {*/
+/*  @include box-sizing(content-box);*/
+/*}*/
+
+hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-top: 1px solid $table-border-color;
+}
+
+.vbottom {
+    display: inline-block;
+    vertical-align: text-bottom;
+    float: none;
+}
+
+.img-border-rounded {
+  @extend .img-rounded;
+  border: 1px solid $thumbnail-border;
+}
+
+large, .large {
+  font-size: ceil(($font-size-base * 1.5));
+}
+
+Large, .Large {
+  font-size: ceil(($font-size-base * 1.5));
+  font-weight: bold;
+}
+
+.modal-content-danger {
+  @extend .modal-content;
+  background-color: $state-danger-bg;
+}
+
+.modal-content-warning {
+  @extend .modal-content;
+  background-color: $state-warning-bg;
+}
+
+.modal-content-info {
+  @extend .modal-content;
+  background-color: $state-info-bg;
+}
+
+.modal-content-success {
+  @extend .modal-content;
+  background-color: $state-success-bg;
+}
+
+.control-label-left {
+  @extend .control-label;
+  text-align: left !important;
+}
+
+//.navbar-brand {
+//  @extend .navbar-brand;
+//  padding: 0 15px 0 5px;
+//}
+
+.navbar {
+  @extend .navbar;
+  border: 0px;
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+.navbar-brand-logo {
+  @extend .navbar-brand;
+  padding: 1px 10px 1px 5px;
+}
+
+.navbar-text {
+  @extend .navbar-text;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.navbar .nav > li > a, .navbar .nav > li.current-menu-item > a, .navbar .nav > li.current-menu-ancestor > a {
+//  display:        inline;
+//  color:          red;                        
+//  font-family:    Garamond;
+  font-size:      $font-size-large;
+//  padding:        5px 20px;
+//  @media (max-width: $grid-float-breakpoint) {
+//    font-size: $font-size-h3;
+//  }
+}
+
+
+//.caret {
+//  @extend .caret;
+//  font-size: 120%;
+//}
+
+/*.logo {*/
+/*  border: 1px solid black;*/
+/*  border-radius: 3px;*/
+/*}*/
+
+/*.table tbody > tr > td:last-child {*/
+/*  text-align: right;*/
+/*}*/
+
+.pre {
+  word-break: break-all;
+  word-wrap: break-word;
+  color: $pre-color;
+  background-color: $pre-bg;
+  font-family: $font-family-monospace;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
+.page-footer {
+  padding-top: (($line-height-computed / 2) - 1);
+  margin: ($line-height-computed * 2) 0 $line-height-computed;
+  border-top: 1px solid $page-footer-border-color;
+}
+
+.help-block {
+  font-size: $font-size-base;
+  font-weight: bold;
+}
+
+/*.btn-yes {*/
+/*  @include mybutton($btn-success-color, $btn-success-bg, $btn-success-border);*/
+/*}*/
+
+/*.btn-no {*/
+/*  @include mybutton($btn-danger-color, $btn-danger-bg, $btn-danger-border);*/
+/*}*/
+
+/*.btn-neutral {*/
+/*  @include mybutton($btn-default-color, $btn-default-bg, $btn-default-border);*/
+/*}*/
+
+#helptext img {
+  display: block;
+  margin: ($line-height-computed * 2) auto ($line-height-computed * 3);
+  border: 1px solid $thumbnail-border;
+  border-radius: $border-radius-large;
+}

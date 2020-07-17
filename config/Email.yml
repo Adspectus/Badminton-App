@@ -1,0 +1,8 @@
+Host: smtp.fastmail.com
+SSL: 1
+User: SMTPUSER
+Password: SMTPPASSWORD
+FromName: Badminton-App
+FromMail: badminton-app@example.com
+ToName: Max Mustermann
+ToMail: me@example.com

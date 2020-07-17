@@ -1,0 +1,12 @@
+.sass-cache/
+backups/
+logs/
+htdocs/.well-known/
+.backup
+.usage
+**/.maintenance
+**/.debug
+**/*local*
+**/*Local*
+**/*.bck
+*~

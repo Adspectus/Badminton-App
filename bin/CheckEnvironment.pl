@@ -1,0 +1,34 @@
+#!/usr/bin/perl
+
+use constant { TRUE => 1, FALSE => 0, BASE => $ENV{'VIRTUAL_ROOT'} };
+use lib '/srv/www/perl-lib',BASE . '/perl-lib';
+use open qw( :encoding(UTF-8) :std );
+use strict;
+use utf8;
+use warnings;
+use Badminton::DB;
+use Badminton::Functions qw(:all);
+use Carp;
+use CGI qw(:standard);
+use CGI::Carp qw(fatalsToBrowser warningsToBrowser);
+use CGI::Session;
+use CGI::Session::Auth::DBI;
+use Config::Merge;
+use Data::Dumper;
+use Date::Calc qw(Add_Delta_Days Easter_Sunday);
+use DBI;
+use Digest::MD5 qw(md5_hex);
+use Email::MessageID;
+use Email::Sender::Simple qw(sendmail try_to_sendmail);
+use Email::Sender::Transport::SMTP;
+use Email::Simple;
+use Encode qw(decode encode);
+use Exporter qw(import);
+use JSON -convert_blessed_universally;
+use POSIX qw(locale_h ceil);
+use Sys::Hostname;
+use Text::Markdown::Discount;
+use Time::Piece;
+use Time::Seconds;
+use WebSite::Template;
+use WebSite::Framework::Bootstrap;

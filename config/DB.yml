@@ -1,0 +1,4 @@
+Host: localhost
+Database: DBNAME
+User: DBUSER
+Password: DBPASSWORD

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title><TMPL_IF NAME="Title"><!-- TMPL_VAR NAME="Title" --></TMPL_IF></title>
+    <meta name="description" content="<TMPL_IF NAME="Description"><!-- TMPL_VAR NAME="Description" --></TMPL_IF>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Icons for favicons and apps -->
+    <link rel="shortcut icon" href="/lib/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/lib/icons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/lib/icons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/lib/icons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/lib/icons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/lib/icons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/lib/icons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/lib/icons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/lib/icons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/lib/icons/apple-touch-icon-180x180.png">
+    <meta name="apple-mobile-web-app-title" content="<TMPL_IF NAME="Title"><!-- TMPL_VAR NAME="Title" --></TMPL_IF>">
+    <link rel="icon" type="image/png" href="/lib/icons/favicon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/lib/icons/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="/lib/icons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/lib/icons/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/lib/icons/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="/lib/icons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/lib/icons/browserconfig.xml">
+    <meta name="application-name" content="<TMPL_IF NAME="Title"><!-- TMPL_VAR NAME="Title" --></TMPL_IF>">    
+    <!-- Include Google font Lato -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic,700italic" media="all" />
+    <!-- Include Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="/lib/css/bootstrap.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container<TMPL_IF NAME="Fluid">-fluid</TMPL_IF>">
+        <TMPL_IF NAME="NavBar"><!-- TMPL_VAR NAME="NavBar" --></TMPL_IF>
+      </div>
+    </nav>
+    <div class="container<TMPL_IF NAME="Fluid">-fluid</TMPL_IF>">
+      <TMPL_IF NAME="Content"><!-- TMPL_VAR NAME="Content" --></TMPL_IF>
+    </div>
+  </body>
+</html>
+

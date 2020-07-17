@@ -1,0 +1,13 @@
+$body-bg:                     #eee;
+//$navbar-default-bg:           #2d89ef;
+//$navbar-default-border:       darken($navbar-default-bg, 6.5%);
+$font-family-sans-serif:      Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base:            $font-family-sans-serif;
+$icon-font-path:              "/common-lib/bootstrap/fonts/";
+$page-footer-border-color:    $gray-lighter;
+$modal-backdrop-bg:           #000;
+$modal-backdrop-opacity:      .2;
+$modal-header-border-color:   #c5c5c5;
+$modal-footer-border-color:   $modal-header-border-color;
+$grid-float-breakpoint:       $screen-md-min;
+$grid-float-breakpoint-max:   ($grid-float-breakpoint - 1);
