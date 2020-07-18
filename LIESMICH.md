@@ -6,7 +6,7 @@
 
 [English](README.md)
 
-Web-App für die Verwaltung von Trainigsterminen einer Badminton Gruppe
+Web-App für die Verwaltung von Trainingsterminen einer Badminton Gruppe
 
 ## Entstehungsgeschichte
 
