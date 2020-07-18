@@ -32,25 +32,25 @@
     <!-- Include jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
     <!-- Include jQuery plugin datetimepicker -->
-    <link rel="stylesheet" type="text/css" href="/common-lib/jquery-plugins/datetimepicker-master/jquery.datetimepicker.css" />
-    <script src="/common-lib/jquery-plugins/datetimepicker-master/jquery.datetimepicker.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/lib/jquery-plugins/datetimepicker-master/jquery.datetimepicker.css" />
+    <script src="/lib/jquery-plugins/datetimepicker-master/jquery.datetimepicker.js" type="text/javascript"></script>
     <!-- Include jQuery plugin validation (requires bootstrap) -->
-    <link rel="stylesheet" type="text/css" href="/common-lib/jquery-plugins/bootstrapvalidator/dist/css/bootstrapValidator.min.css" />
-    <script src="/common-lib/jquery-plugins/bootstrapvalidator/dist/js/bootstrapValidator.min.js" type="text/javascript"></script>
-    <script src="/common-lib/jquery-plugins/bootstrapvalidator/dist/js/language/de_DE.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/lib/jquery-plugins/bootstrapvalidator/dist/css/bootstrapValidator.min.css" />
+    <script src="/lib/jquery-plugins/bootstrapvalidator/dist/js/bootstrapValidator.min.js" type="text/javascript"></script>
+    <script src="/lib/jquery-plugins/bootstrapvalidator/dist/js/language/de_DE.js" type="text/javascript"></script>
     <!-- Include jQuery plugin DataTables with Bootstrap integration-->
-    <script src="/common-lib/jquery-plugins/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="/common-lib/jquery-plugins/datatables-extensions/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="/common-lib/jquery-plugins/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" />
-    <script src="/common-lib/jquery-plugins/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="/lib/jquery-plugins/datatables/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="/lib/jquery-plugins/datatables-extensions/TableTools/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/lib/jquery-plugins/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" />
+    <script src="/lib/jquery-plugins/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js" type="text/javascript"></script>
     <!-- Include jQuery plugin jquery-cookie -->
-    <script src="/common-lib/jquery-plugins/jquery-cookie/jquery.cookie.js" type="text/javascript"></script>
+    <script src="/lib/jquery-plugins/jquery-cookie/jquery.cookie.js" type="text/javascript"></script>
     <!-- Include Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="/lib/css/bootstrap.css<TMPL_IF NAME="TAG">?<!-- TMPL_VAR NAME="TAG" --></TMPL_IF>" />
-    <script src="/common-lib/bootstrap/js/bootstrap.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/css/bootstrap.css<TMPL_IF NAME="TAG">?<!-- TMPL_VAR NAME="TAG" --></TMPL_IF>" />
+    <script src="/lib/bootstrap/js/bootstrap.js" type="text/javascript"></script>
     <!-- Include Bootstrap Switch -->
-    <link rel="stylesheet" type="text/css" href="/common-lib/bootstrap-plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" />
-    <script src="/common-lib/bootstrap-plugins/bootstrap-switch/js/bootstrap-switch.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap-plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.css" />
+    <script src="/lib/bootstrap-plugins/bootstrap-switch/js/bootstrap-switch.js" type="text/javascript"></script>
     <!-- Include optional additional stylesheet -->
     <TMPL_IF NAME="Stylesheet"><link rel="stylesheet" type="text/css" href="<!-- TMPL_VAR NAME="Stylesheet" -->" /></TMPL_IF>
     <!-- Include additional basic functions -->

@@ -30,7 +30,7 @@
     <!-- Include Google font Lato -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic,700italic" media="all" />
     <!-- Include Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="/lib/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap/css/bootstrap.css" />
   </head>
   <body>
     <nav class="navbar navbar-default" role="navigation">

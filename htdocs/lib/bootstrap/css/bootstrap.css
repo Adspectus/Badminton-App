@@ -250,8 +250,8 @@ th {
     border: 1px solid #ddd !important; } }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("/common-lib/bootstrap/fonts/glyphicons-halflings-regular.eot");
-  src: url("/common-lib/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/common-lib/bootstrap/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/common-lib/bootstrap/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/common-lib/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
+  src: url("/lib/bootstrap/fonts/glyphicons-halflings-regular.eot");
+  src: url("/lib/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("/lib/bootstrap/fonts/glyphicons-halflings-regular.woff") format("woff"), url("/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("/lib/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); }
 .glyphicon {
   position: relative;
   top: 1px;

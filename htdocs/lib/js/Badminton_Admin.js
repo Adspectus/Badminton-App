@@ -520,7 +520,7 @@ $(function() {
     },
     dom: 'lfrt<"clear">iTp',
     tableTools: {
-      sSwfPath: '/common-lib/jquery-plugins/datatables-extensions/TableTools/swf/copy_csv_xls_pdf.swf',
+      sSwfPath: '/lib/jquery-plugins/datatables-extensions/TableTools/swf/copy_csv_xls_pdf.swf',
       oSelectorOpts: { filter: 'applied' },
       aButtons: [
         { sExtends: 'copy',oSelectorOpts: { filter: 'applied' } },
@@ -562,7 +562,7 @@ $(function() {
     },
     dom: 'lfrt<"clear">iTp',
     tableTools: {
-      sSwfPath: '/common-lib/jquery-plugins/datatables-extensions/TableTools/swf/copy_csv_xls_pdf.swf',
+      sSwfPath: '/lib/jquery-plugins/datatables-extensions/TableTools/swf/copy_csv_xls_pdf.swf',
       oSelectorOpts: { filter: 'applied' },
       aButtons: [
         { sExtends: 'copy',oSelectorOpts: { filter: 'applied' } },

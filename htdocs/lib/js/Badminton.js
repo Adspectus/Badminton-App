@@ -446,7 +446,7 @@ $(function() {
     },
     dom: 'T<"clear">lfrtip',
     tableTools: {
-      sSwfPath: '/common-lib/jquery-plugins/datatables-extensions/TableTools/swf/copy_csv_xls_pdf.swf',
+      sSwfPath: '/lib/jquery-plugins/datatables-extensions/TableTools/swf/copy_csv_xls_pdf.swf',
       oSelectorOpts: { filter: 'applied' },
       aButtons: [
         { sExtends: 'copy',mColumns: [1,2,3,4,5],oSelectorOpts: { filter: 'applied' } },
