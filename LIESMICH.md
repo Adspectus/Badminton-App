@@ -4,22 +4,23 @@
 [![GitHub license](https://img.shields.io/github/license/Adspectus/Badminton-App?style=flat-square&label=License)](https://github.com/Adspectus/Badminton-App/blob/master/LICENSE)
 [![Perl version](https://img.shields.io/static/v1?label=Perl&message=5&color=yellow&style=flat-square)](https://www.perl.org/)
 
-[Deutsch](LIESMICH.md)
+[English](README.md)
 
-Web app for the management of training dates for a badminton group
+Web-App für die Verwaltung von Trainigsterminen einer Badminton Gruppe
 
-## Genesis
+## Entstehungsgeschichte
 
-## Getting Started
+## Start
 
-### Prerequisites
+### Voraussetzungen
 
 ### Installation
 
-## Usage
+## Verwendung
 
-## License
+## Lizenz
 
 [GNU General Public License v3.0](LICENSE)
 
-## Acknowledgements
+## Danksagungen
+
