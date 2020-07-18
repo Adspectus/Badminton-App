@@ -2,8 +2,8 @@
 
 DIRS="bin cgi-bin config htdocs perl-lib"
 FILES=""
-OWNER="$USER"
-GROUP="www-data"
+OWNER=$(id -un)
+GROUP=$(id -gn)
 FILEMODE="664"
 DIRMODE="775"
 
@@ -13,24 +13,11 @@ TOPDIR=$(git rev-parse --show-toplevel)
 
 [[ -z $TOPDIR ]] && exit
 
-#sudo cp "$TOPDIR/config/Settings.yml.$BRANCH" "$TOPDIR/config/Settings.yml"
-
-#if [ "$BRANCH" == "develop" ];then
-#  Actions on DEV
-#fi
-#if [ "$BRANCH" == "test" ];then
-#  Actions on TEST
-#fi
-#if [ "$BRANCH" == "master" ];then
-#  sudo rm -rf "$TOPDIR/htdocs/lib/scss/"
-#fi
-
 for dir in $DIRS;do
-#  echo sudo chown -R "$OWNER"."$GROUP" "$TOPDIR/$dir"
   sudo chown -R "$OWNER"."$GROUP" "$TOPDIR/$dir"
   find "$TOPDIR/$dir" -type d -print0 | xargs -0r sudo chmod "$DIRMODE"
   find "$TOPDIR/$dir" -type f -print0 | xargs -0r sudo chmod "$FILEMODE"
-  find "$TOPDIR/$dir" -type f \( -name *.sh -o -name *.pl -o -name *.cgi \) -print0 | xargs -0r sudo chmod "$DIRMODE"
+  find "$TOPDIR/$dir" -type f \( -name '*.sh' -o -name '*.pl' -o -name '*.cgi' \) -print0 | xargs -0r sudo chmod "$DIRMODE"
 done
 
 for file in $FILES;do
