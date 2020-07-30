@@ -138,7 +138,6 @@ unless ($CurrentUser->{'Active'}) {
 chomp(my $VERSION        = `git describe`);
 my ($TAG,$COMMITS)       = split(/-/,$VERSION,2);
 my $AppConfig            = $DB->get('Config');
-my $PlayTime             = '19:30';
 my $TP_Now               = Time::Piece->new;
 my $ThisYear             = $TP_Now->year; # &getDateFormatted('Year');
 my $LastYear             = $ThisYear - 1;
@@ -148,10 +147,10 @@ my $Holidays             = &getHolidays();
 my $Participation        = $DB->getParticipationByUser({'UserID' => $Auth->profile('userid')})->{'Data'};
 my $Contributions        = $DB->getContributions({'Year' => $ThisYear})->{'Data'};
 my $NextMatchday         = $DB->getNextMatchday()->{'Data'};
-my $TP_NextMatch         = Time::Piece->strptime($NextMatchday.' '.$PlayTime,"%Y-%m-%d %R");
 my $DayBefore            = &getDayBefore($NextMatchday);
-my $TP_Deadline          = $TP_NextMatch - $Config->('Settings.ParticipationDeadline');
-my $NextMatchdays        = $DB->getNextMatchdays({'Limit' => $Config->('UI.NextMatchdays')})->{'Data'};
+my $TP_NextMatch         = Time::Piece->strptime($NextMatchday.' '.$DB->getParameter('MatchTime'),"%Y-%m-%d %R");
+my $TP_Deadline          = $TP_NextMatch - $DB->getParameter('ParticipationDeadline');
+my $NextMatchdays        = $DB->getNextMatchdays()->{'Data'};
 my $PastMatchdays        = $DB->getPastMatchdays()->{'Data'};
 my $CourtsByDate         = $DB->getCourtsByDate({'Date' => $NextMatchday})->{'Data'};
 my $ParticipationByDate  = $DB->getParticipationByDate({'Date' => $NextMatchday})->{'Data'};
@@ -502,7 +501,7 @@ my $Organisation = $Config->('UI.Organisation');
 $HelpContent =~ s/<!--\s+Organisation\s+-->/$Organisation/g;
 my $AppMail = $Config->('Email.FromMail');
 $HelpContent =~ s/<!--\s+AppMail\s+-->/<$AppMail>/g;
-my $Admins = join(" oder ",map { $Players->{$_}->{'Firstname'}.' '.$Players->{$_}->{'Lastname'}.' (<'.$Players->{$_}->{'EMail'}.'>)' } @{$DB->getAdmins()->{'Data'}});
+my $Admins = $Config->('Email.ToName').' (<'.$Config->('Email.ToMail').'>)'.join(" oder ",map { $Players->{$_}->{'Firstname'}.' '.$Players->{$_}->{'Lastname'}.' (<'.$Players->{$_}->{'EMail'}.'>)' } @{$DB->getAdmins()->{'Data'}});
 $HelpContent =~ s/<!--\s+Admins\s+-->/$Admins/g;
 
 # Set Content

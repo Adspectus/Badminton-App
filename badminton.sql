@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `badminton` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS `badminton` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `badminton`;
 -- MySQL dump 10.13  Distrib 5.7.30, for Linux (x86_64)
 --
@@ -31,7 +31,7 @@ CREATE TABLE `activity_log` (
   `Change_By` int(3) unsigned NOT NULL DEFAULT '0',
   `Activity` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12725 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +112,7 @@ CREATE TABLE `guests` (
   `Firstname` varchar(64) NOT NULL,
   `Lastname` varchar(64) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,6 +128,26 @@ CREATE TABLE `locale` (
   PRIMARY KEY (`Parameter`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `locale`
+--
+
+LOCK TABLES `locale` WRITE;
+/*!40000 ALTER TABLE `locale` DISABLE KEYS */;
+INSERT INTO `locale` VALUES
+  ('DefaultCourts','Spielzeiten für neue Spieltage (Standardwert)'),
+  ('Fee','Eigenbeitrag in € (Standardwert)'),
+  ('GuestContribution','Beitrag für Gäste pro Besuch in €'),
+  ('LateFreeShots','Freischüsse fürs zu späte Ab- oder Zusagen'),
+  ('LatePenalty','Strafe fürs zu späte Ab- oder Zusagen in €'),
+  ('ParticipationDeadline','Zeitpunkt vor Spielbeginn ab dem die Abstimmung als zu spät vermerkt wird in Sekunden'),
+  ('PricePerCourt','Preis für 1 Platz und 1 Spielzeit in €'),
+  ('MatchDay','Spieltag (Montag = 0, Dienstag = 1, usw.)'),
+  ('MatchTime','Spielbeginn (HH:MM)'),
+  ('NextMatchdays','Anzahl der Spieltage für die zukünftige Teilnahme');
+/*!40000 ALTER TABLE `locale` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `matchdays`
@@ -219,14 +239,14 @@ CREATE TABLE `players` (
   `CountryCode` int(3) unsigned DEFAULT NULL,
   `GeoCode` int(5) unsigned DEFAULT NULL,
   `SubscriberCode` int(10) unsigned DEFAULT NULL,
-  `EntryDate` date NOT NULL DEFAULT '0000-00-00',
+  `EntryDate` date DEFAULT NULL,
   `Birthday` date DEFAULT NULL,
   `Default_Status` tinyint(1) NOT NULL DEFAULT '0',
   `Active` tinyint(1) NOT NULL DEFAULT '1',
   `Excluded` set('0','1') NOT NULL DEFAULT '0',
-  `ExitDate` date NOT NULL DEFAULT '0000-00-00',
+  `ExitDate` date DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -267,7 +287,7 @@ IF OLD.Active <> NEW.Active THEN
     END IF;
     IF NEW.Active = '1' THEN
         BEGIN
-        SET NEW.ExitDate = '0000-00-00';
+        SET NEW.ExitDate = NULL;
         END;
     END IF;
     INSERT INTO activity_log SET Activity = 'ExitDate in players vom Trigger ChangeExitDateOnUpdate geändert.';
@@ -458,7 +478,7 @@ BEGIN
 DECLARE var_date DATE;
 SELECT Date INTO var_date
 FROM matchdays
-WHERE (Date > DATE(NOW()) OR (Date = DATE(NOW()) AND HOUR(NOW()) < 19) OR (Date = DATE(NOW()) AND HOUR(NOW()) = 19 AND MINUTE(NOW()) < 30))
+WHERE (Date > DATE(NOW()) OR (Date = DATE(NOW()) AND HOUR(NOW()) < (SELECT HOUR(Setting) FROM settings WHERE UserID = '0' AND Year = '0000' AND Parameter = 'MatchTime')) OR (Date = DATE(NOW()) AND HOUR(NOW()) = (SELECT HOUR(Setting) FROM settings WHERE UserID = '0' AND Year = '0000' AND Parameter = 'MatchTime') AND MINUTE(NOW()) < (SELECT MINUTE(Setting) FROM settings WHERE UserID = '0' AND Year = '0000' AND Parameter = 'MatchTime')))
 AND Status = '1'
 ORDER BY Date
 LIMIT 1;
@@ -620,8 +640,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `CreateMatchdays`(IN `StartDate` DAT
 this_proc:BEGIN
 DECLARE x INT;
 DECLARE adate DATE;
+DECLARE weekday INT;
 SET x = 1;
-IF (WEEKDAY(StartDate) <> 3) THEN BEGIN
+SET weekday = (SELECT Setting FROM settings WHERE UserID = '0' AND Year = '0' AND Parameter = 'MatchDay');
+IF (WEEKDAY(StartDate) <> weekday) THEN BEGIN
   LEAVE this_proc;
   END;
 END IF;

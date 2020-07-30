@@ -153,14 +153,20 @@ sub getNextMatchday { #
 sub getNextMatchdays { #
   my ($self,$args) = (@_);
   my $DBH = $self->get('Handle');
-  my $Limit = $args->{'Limit'} || undef;
-  return {'Success' => FALSE,'Message' => 'Missing parameter Limit','Data' => undef} unless ($Limit);
+  my $Limit = $args->{'Limit'} || $self->getParameter('NextMatchdays');
+#  return {'Success' => FALSE,'Message' => 'Missing parameter Limit','Data' => undef} unless ($Limit);
   my $Matchdays = [];
 
   eval { $Matchdays = $DBH->selectcol_arrayref("SELECT Date FROM matchdays WHERE Date > GetNextMatchday() AND Status = 1 ORDER BY Date LIMIT ?",undef,$Limit); };
 
   return {'Success' => FALSE,'Message' => $DBI::errstr,'Data' => undef} if ($@);
   return {'Success' => TRUE,'Message' => '','Data' => $Matchdays};
+}
+
+sub getParameter {
+  my ($self,$key) = (@_);
+  return undef unless ($key);
+  return $self->getSetting({'Parameter' => $key})->{'Data'};
 }
 
 sub getParticipation { #
@@ -238,17 +244,21 @@ sub getPlayers { #
   return {'Success' => TRUE,'Message' => '','Data' => $Players};
 }
 
-#sub getSettings { #
-#  my ($self,$args) = (@_);
-#  my $DBH = $self->get('Handle');
-#  my $ByKeys = ['UserID','Year','Parameter'];
-#  my $Settings = {};
+sub getSetting { #
+  my ($self,$args) = (@_);
+  my $DBH = $self->get('Handle');
+  my $UserID = $args->{'UserID'} || '0';
+  my $Year = $args->{'Year'} || '0000';
+  my $Parameter = $args->{'Parameter'} || undef;
+  return {'Success' => FALSE,'Message' => 'Missing parameter Parameter','Data' => undef} unless ($Parameter);
+  my $Data = {};
 
-#  eval { $Settings = $DBH->selectall_hashref("SELECT * FROM settings LEFT JOIN locale USING(Parameter)",$ByKeys); };
+  eval { $Data = $DBH->selectrow_hashref("SELECT Setting FROM settings WHERE UserID = ? AND Year = ? AND Parameter = ?",{},$UserID,$Year,$Parameter); };
 
-#  return {'Success' => FALSE,'Message' => $DBI::errstr,'Data' => undef} if ($@);
-#  return {'Success' => TRUE,'Message' => '','Data' => _removeKeys($ByKeys,$Settings)};
-#}
+ return {'Success' => FALSE,'Message' => $DBI::errstr,'Data' => undef} if ($@);
+ return {'Success' => TRUE,'Message' => '','Data' => $Data->{'Setting'}};
+}
+
 
 #******************************************************************************
 # Set methods
@@ -363,9 +373,9 @@ sub saveFutureMatchday { #
   my $Date          = $args->{'Date'} || undef;
   return {'Success' => FALSE,'Message' => 'Missing parameter Date','Data' => undef} unless ($Date);
   my $Status        = $args->{'Status'};
-  my $DefaultCourts = $args->{'DefaultCourts'} || undef;
-  if ($Status) { return {'Success' => FALSE,'Message' => 'Missing parameter DefaultCourts','Data' => undef} unless ($DefaultCourts) };
-  my $Courts        = $Status ? $args->{'DefaultCourts'} : '0';
+#  my $DefaultCourts = $self->getParameter('DefaultCourts');
+#  if ($Status) { return {'Success' => FALSE,'Message' => 'Missing parameter DefaultCourts','Data' => undef} unless ($DefaultCourts) };
+  my $Courts        = $Status ? $self->getParameter('DefaultCourts') : '0';
   my $ChangeBy      = $args->{'Last_Change_By'} || 0;
 
   eval {
@@ -563,13 +573,7 @@ sub _setConfig {
   eval { $Settings = $DBH->selectall_hashref("SELECT * FROM settings LEFT JOIN locale USING(Parameter)",$ByKeys); };
 
   $self->set('Config',undef) if ($@);
-  $self->set('Config',_removeKeys($ByKeys,$Settings));
-}
-
-sub _getConfig {
-  my ($self,$parameter) = (@_);
-  my $Config = $self->get('Config');
-  return $Config->{'0'}->{'0000'}->{$parameter}->{'Setting'};
+  $self->set('Config',_removeKeys($ByKeys,$Settings)) unless ($@);
 }
 
 sub _Hash2String {

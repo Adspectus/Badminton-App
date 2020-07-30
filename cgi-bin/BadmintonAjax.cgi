@@ -215,7 +215,7 @@ sub getPlayerParticipation {
   my $UserID = $Params->{'UserID'};
   my $Participation = $DB->getParticipationByUser({'UserID' => $UserID})->{'Data'};
   my $NextMatchday  = $DB->getNextMatchday()->{'Data'};
-  my $NextMatchdays = $DB->getNextMatchdays({'Limit' => $Config->('UI.NextMatchdays')})->{'Data'};
+  my $NextMatchdays = $DB->getNextMatchdays()->{'Data'};
   my %StatusByDate  = map { $_ => $Participation->{$_}->{'Status'} } ($NextMatchday,@{$NextMatchdays});
   foreach my $date (@{$NextMatchdays}) {
     $StatusByDate{$date} = -1 unless (defined($StatusByDate{$date}));
@@ -320,7 +320,7 @@ sub saveFutureMatchday {
   my $Date   = $Params->{'Date'};
   return [$Date,$Status] if ($Params->{'Debug'});
   my $ParticipationByDate = $DB->getParticipationByDate({'Date' => $NextMatchday})->{'Data'};
-  my $Result = $DB->saveFutureMatchday({'Date' => $Date,'Status' => $Status,'DefaultCourts' => $Config->('Defaults.CourtsRented'),'Last_Change_By' => $Auth->profile('userid')});
+  my $Result = $DB->saveFutureMatchday({'Date' => $Date,'Status' => $Status,'Last_Change_By' => $Auth->profile('userid')});
   if ($Result->{'Success'}) {
     $DB->log({'UserID' => '0','Change_By' => $Auth->profile('userid'),'Activity' => 'Spieltagstatus für '.&getDateFormatted('Simple',$Date).' geändert auf "'.($Status ? 'Findet statt' : 'Findet nicht statt').'".'});
     if ($Status == 0) {
