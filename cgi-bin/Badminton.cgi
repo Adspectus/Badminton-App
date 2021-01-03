@@ -79,7 +79,7 @@ if ($UA =~ /Mozilla\/4/ or $UA =~ /bot/i) {
 #
 ###############################################################################
 
-my $DB    = Badminton::DB->new({'Host' => $Config->('DB.Host'),'Database' => $Config->('DB.Database'),'DB_User' => $Config->('DB.User'),'DB_Pass' => $Config->('DB.Password')});
+my $DB    = Badminton::DB->new({'Host' => $Config->('DB.Host'),'Port' => $Config->('DB.Port'),'Database' => $Config->('DB.Database'),'DB_User' => $Config->('DB.User'),'DB_Pass' => $Config->('DB.Password')});
 my $Auth  = CGI::Session::Auth::DBI->new({CGI => $CGI,Session => $Session,LoginVarPrefix => $Config->('UI.LoginVarPrefix'),DBHandle => $DB->get('Handle'),'EncryptPW' => 1,'PasswordField' => 'password'});
 
 $Auth->authenticate();

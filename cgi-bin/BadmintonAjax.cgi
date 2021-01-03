@@ -35,7 +35,7 @@ my $Config = Config::Merge->new('path' => BASE . '/config','is_local' => qr/loca
 my $CGI             = CGI->new();
 my $Session         = CGI::Session->new(undef, $CGI, {Directory=>'/tmp'});
 my $Output          = {'JSON' => \&_printJSON,'HTML' => \&_printHTML};
-my $DB              = Badminton::DB->new({'Host' => $Config->('DB.Host'),'Database' => $Config->('DB.Database'),'DB_User' => $Config->('DB.User'),'DB_Pass' => $Config->('DB.Password')});
+my $DB              = Badminton::DB->new({'Host' => $Config->('DB.Host'),'Port' => $Config->('DB.Port'),'Database' => $Config->('DB.Database'),'DB_User' => $Config->('DB.User'),'DB_Pass' => $Config->('DB.Password')});
 my $Params          = {'Format' => 'JSON',%{$CGI->Vars}};
 $Params->{'Format'} = 'JSON' unless (exists($Output->{$Params->{'Format'}}));
 my $JSON            = JSON->new->utf8(1)->allow_nonref(1)->allow_blessed(1)->convert_blessed(1);
