@@ -52,4 +52,11 @@ else { push(@Recipients,map { $Players->{$_}->{'Firstname'}.' '.$Players->{$_}->
 
 sendMail(\@Recipients,$Subject,$Message,$ReplyTo,FALSE,$Config);
 
+unless ($DEBUG) {
+  my $Extern     = $Config->('Email.Extern.Name').' <'.$Config->('Email.Extern.Mail').'>';
+  my @Externs    = ($Extern);
+
+  sendMail(\@Externs,$Subject,'',$ReplyTo,FALSE,$Config);
+}
+
 exit;

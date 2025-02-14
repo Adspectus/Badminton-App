@@ -1,8 +1,9 @@
+<!-- markdownlint-disable-file MD033 -->
+
 Hilfe
 =====
 
-Die Badminton-App dient der Koordination der Teilnahme am Badmintontraining der <!-- Organisation -->. Das Training findet jeden **Donnerstag von 19:30 bis 21:45** im Sportpark Mainz-Mombach statt (Obere Kreuzstraße 30, Tel.: 06131/687000, Anfahrt siehe unten). Basierend auf der Zahl der angemeldeten Teilnehmer werden die erforderlichen Plätze reserviert oder storniert, daher ist es wichtig, dass du dich bis **Mittwoch, 18 Uhr** für den Spieltag am nächsten Tag entschieden hast.
-
+Die Badminton-App dient der Koordination der Teilnahme am Badmintontraining der <!-- Organisation -->. Das Training findet jeden **Donnerstag von 19:30 bis 21:45** im Sportpark Mainz-Mombach statt (Obere Kreuzstraße 30, Tel.: 06131/687000, Anfahrt siehe unten). Basierend auf der Zahl der angemeldeten Teilnehmer werden die erforderlichen Plätze reserviert oder storniert, daher ist es wichtig, dass du dich bis **Mittwoch, 12 Uhr** für den Spieltag am nächsten Tag entschieden hast.
 
 Allgemeine Benutzungshinweise
 -----------------------------
@@ -23,7 +24,6 @@ Beachte noch, dass die Ansicht der App je nach verwendetem Endgerät und Browser
 
 Die Funktionalität ist auf allen Geräten aber gleich.
 
-
 Startseite
 ----------
 
@@ -41,7 +41,6 @@ Also: Wenn Du zugesagt hast, kannst du durch Drücken/Klicken des roten Buttons 
 
 Ganz unten wirst Du noch informiert, bis wann Du *rechtzeitig* zu- oder absagen kannst. Du kannst natürlich jederzeit zu- oder absagen und auch unabhängig von Deiner Zu- oder Absage am Training teilnehmen oder nicht. Wir haben uns jedoch darauf verständigt, mit dem Ablauf der hier angegebenen Frist die Zu- und Absagen als *verbindlich* zu betrachten und auf dieser Grundlage die zu buchenden (und zu bezahlenden!) Spielzeiten festzulegen, so dass wir ausreichend aber auch nicht zu viele Plätze bespielen können. *Verbindlich* heißt demnach, dass eine anschließende "Abweichung" - also eine zu späte Zu- oder Absage sowie die Teilnahme trotz Absage oder Nicht-Teilnahme trotz Zusage - mit einer zusätzlichen Zahlung von € 5,- pro Abweichung einhergeht, wobei die ersten drei Abweichungen nicht sanktioniert werden.
 
-
 Meine Daten
 -----------
 
@@ -52,7 +51,6 @@ An Deine E-Mail-Adresse wird Dein neues Passwort gesendet, wenn Du es selbst nic
 Hier ist auch der Schalter für Deine Standard-Teilnahme. Wenn Du ihn auf Ja stellst, heißt das, dass Du automatisch an jedem Spieltag teilnimmst, es sei denn Du sagst ausdrücklich ab. Umgekehrt kannst Du ihn auf Nein stellen, dann bedeutet das, dass Du automatisch jeden Spieltag absagst, es sei denn Du sagst ausdrücklich zu.
 
 Wenn Du willst, kannst Du hier auch Dein Geburtsdatum angeben.
-
 
 Meine Teilnahme
 ---------------
@@ -65,12 +63,10 @@ Ein grünes Häkchen bedeutet, dass Du teilgenommen hast, ein schwarzes Kreuz da
 
 Wenn Du der Meinung bist, dass die Angaben auf dieser Seite nicht stimmen, wennde Dich an einen Admin. Diese können die Angaben überprüfen und korrigieren.
 
-
 Zukünftige Teilnahme
 --------------------
 
 Hier kannst Du über die nächsten 8 Spieltage abstimmen. Der Schalter steht auf Grün ("Ja"), wenn Du an diesem Spieltag teilnehmen willst und auf Rot ("Nein"), wenn Du an diesem Spieltag nicht teilnehmen willst. Der inaktive Button "Standardeinstellung wird verwendet" wird angezeigt, wenn alle Termine Deiner Standard-Teilnahmeeinstellung entsprechen. Wenn Du bei einzelnen oder allen Terminen abweichend von Deiner Standard-Teilnahmeeinstellung abgestimmt hast, siehst Du das hier und es wird statt dessen der aktive Button "Standardeinstellung verwenden" angezeigt. Damit kannst Du alle 8 Termine auf Deine Standard-Teilnahmeeinstellung zurücksetzen.
-
 
 Mein Protokoll
 --------------
@@ -90,7 +86,6 @@ Anfahrt
 <iframe width="100%" frameborder="0" id="OSMap" src="" height="450px"></iframe>
 
 [Größere Karte anzeigen](<http://www.openstreetmap.org/?mlat=50.01242&mlon=8.21623#map=17/50.01242/8.21623>)
-
 
 Danksagung
 ----------
