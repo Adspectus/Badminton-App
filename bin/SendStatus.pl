@@ -20,7 +20,7 @@ setlocale(LC_ALL, "de_DE.UTF-8");
 my $Config = Config::Merge->new('path' => BASE . '/config','is_local' => qr/local/i);
 
 my $DEBUG         = -e BASE . '/.debug' ? 1 : 0;
-my $DB            = Badminton::DB->new({'Host' => $Config->('DB.Host'),'Database' => $Config->('DB.Database'),'DB_User' => $Config->('DB.User'),'DB_Pass' => $Config->('DB.Password')});
+my $DB            = Badminton::DB->new({'Host' => $Config->('DB.Host'),'Port' => $Config->('DB.Port'),'Database' => $Config->('DB.Database'),'DB_User' => $Config->('DB.User'),'DB_Pass' => $Config->('DB.Password')});
 my $Players       = $DB->getPlayers()->{'Data'};
 my $Guests        = $DB->getGuests()->{'Data'};
 my $NextMatchday  = $DB->getNextMatchday()->{'Data'};
